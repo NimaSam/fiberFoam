@@ -1,0 +1,56 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.3                                   |
+|   \\  /    A nd           | Web:      http://www.openfoam.org               |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+FoamFile
+{
+    version 2.0;
+    format ascii;
+
+    root "/home/heinenk/OpenFOAM/heinenk-1.3/run";
+    case "IBOF_U0_0023_glas_G1_SFCD";
+    instance ""13.9799999970813"";
+    local "";
+
+    class volVectorField;
+    object U;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField  uniform (0.001 0 0);
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+    	value			uniform (0.001 0 0);
+    }
+   outlet
+    {
+        type            zeroGradient;
+    }
+    fixedWalls
+    {
+        type            fixedValue;
+        value           uniform (0 0 0);
+    }
+    cylinder
+    {
+        type            fixedValue;
+        value           uniform (0 0 0);
+    }
+    frontandback
+    {
+        type            empty;
+    }
+}
+
+
+// ************************************************************************* //
